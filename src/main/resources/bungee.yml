@@ -1,0 +1,4 @@
+name: TerraPlusMinusBungeeBridge
+version: '${project.version}'
+main: de.btegermany.terraplusminusbungeebridge.TerraPlusMinusBungeeBridge
+author: Leander
