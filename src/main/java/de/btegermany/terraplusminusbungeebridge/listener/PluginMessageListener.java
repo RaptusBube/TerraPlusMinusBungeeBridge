@@ -4,6 +4,7 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.connection.Server;
 import net.md_5.bungee.api.event.PluginMessageEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
@@ -22,7 +23,7 @@ public class PluginMessageListener implements Listener {
         String uuid = dataInput.readUTF();
         UUID playerUUID = UUID.fromString(uuid);
 
-        String servername = dataInput.readUTF();
+        String servername = dataInput.readUTF().split(",")[0];
         String coordinates = dataInput.readUTF();
 
         // Assuming you have a method to get the player by UUID
@@ -44,7 +45,8 @@ public class PluginMessageListener implements Listener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ProxyServer.getInstance().getServers().get(servername).sendData("bungeecord:terraplusminus", stream.toByteArray());
+        //ProxyServer.getInstance().getServers().get(servername).sendData("bungeecord:terraplusminus", stream.toByteArray());
+        ProxyServer.getInstance().getServerInfo(servername).sendData("bungeecord:terraplusminus", stream.toByteArray());
     }
 
 
