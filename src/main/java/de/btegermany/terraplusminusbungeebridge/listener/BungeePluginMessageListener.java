@@ -4,7 +4,6 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.connection.Server;
 import net.md_5.bungee.api.event.PluginMessageEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
@@ -14,10 +13,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
-public class PluginMessageListener implements Listener {
+public class BungeePluginMessageListener implements Listener {
     @EventHandler
     public void onPluginMessage(PluginMessageEvent event) {
-        if (!event.getTag().equalsIgnoreCase("bungeecord:terraplusminus")) return;
+        if (!event.getTag().equalsIgnoreCase("terraplusminus:teleportbridge")) return;
         // get uuid and coordinates from message
         ByteArrayDataInput dataInput = ByteStreams.newDataInput(event.getData());
         String uuid = dataInput.readUTF();
@@ -46,7 +45,7 @@ public class PluginMessageListener implements Listener {
             e.printStackTrace();
         }
         //ProxyServer.getInstance().getServers().get(servername).sendData("bungeecord:terraplusminus", stream.toByteArray());
-        ProxyServer.getInstance().getServerInfo(servername).sendData("bungeecord:terraplusminus", stream.toByteArray());
+        ProxyServer.getInstance().getServerInfo(servername).sendData("terraplusminus:teleportbridge", stream.toByteArray());
     }
 
 
