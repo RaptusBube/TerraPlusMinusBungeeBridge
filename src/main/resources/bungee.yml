@@ -1,4 +1,4 @@
 name: TerraPlusMinusBungeeBridge
 version: '${project.version}'
-main: de.btegermany.terraplusminusbungeebridge.TerraPlusMinusBungeeBridge
-author: Leander
+main: de.btegermany.terraplusminusbungeebridge.main.TerraPlusMinusBungeeBridge
+author: Leander, RaptusBube

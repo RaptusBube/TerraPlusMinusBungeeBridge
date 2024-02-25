@@ -1,0 +1,29 @@
+servers:
+  #Example config
+  #-Server: #servername that matches you proxy config
+    #name: ""  #the name that is used in the message "Connecting you to server NAME", leave blank if you would like to disable this message
+    #xOffset: 0 #x-Offset from your Terra+- config
+    #yOffset: 0 #y-Offset from your Terra+- config
+    #zOffset: 0 #z-Offset from your Terra+- config
+    #maxMcBuildHeight: 0 #Maximum build height on the Terra+- Server
+    #overlappingPlus: 0 #Terrain that is loaded (over the limit) but if one would tpll to it, the player would be sent to the next server. E.g. if a building is "between" two servers, you could use this and have the same building on both servers to make a smooth transition
+    #overlappingMinus: 0 #Terrain that is loaded (under the limit) but if one would tpll to it, the player would be sent to the next server. E.g. if a building is "between" two servers, you could use this and have the same building on both servers to make a smooth transition
+    #you need the terra+-bb.editoverlappingterrain permission to be not teleported automatically to the next server to be able to edit this area
+    #minLatitudeMC: 0 #min_latitude from your Terra+- config but CONVERTED into MC-coords (+x)
+    #maxLatitudeMC: 0 #max_latitude from your Terra+- config but CONVERTED into MC-coords (-x)
+    #minLongitudeMC: 0 #min_longitude from your Terra+- config but CONVERTED into MC-coords (+z)
+    #maxLongitudeMC: 0 #max_longitude from your Terra+- config but CONVERTED into MC-coords (-z)
+    #newHighLimit: true #true if your server is running mc version 1.18 or higher / true if you can build up to -64
+  -Server1: #please replace this with you actual servers
+    name: ""
+    xOffset: 0
+    yOffset: 0
+    zOffset: 0
+    maxMcBuildHeight: 0
+    overlappingPlus: 0
+    overlappingMinus: 0
+    minLatitudeMC: 0
+    maxLatitudeMC: 0
+    minLongitudeMC: 0
+    maxLongitudeMC: 0
+    newHighLimit: true

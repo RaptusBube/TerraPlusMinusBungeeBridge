@@ -42,20 +42,13 @@ public class VelocityPluginMessageListener {
         String servername = dataInput.readUTF().split(",")[0];
         String coordinates = dataInput.readUTF();
 
-        // Assuming you have a method to get the player by UUID
-        //ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playerUUID);
         if (server.getPlayer(playerUUID).isPresent() && server.getServer(servername).isPresent()) {
-            // Move the player to the specified server
             Player player =  server.getPlayer(playerUUID).get();
-            //sendMessageToBukkitServer(player,servername, coordinates);
             RegisteredServer registeredServer = server.getServer(servername).get();
 
             player.createConnectionRequest(registeredServer).connect();
 
             new Thread(() -> {
-                /*while (!player.getCurrentServer().get().getServer().getServerInfo().getName().equalsIgnoreCase(registeredServer.getServerInfo().getName())){
-                    continue;
-                }*/
                 while (player.getCurrentServer().isPresent()){
                     continue;
                 }
@@ -66,16 +59,10 @@ public class VelocityPluginMessageListener {
                 while (!player.getCurrentServer().get().getServer().getServerInfo().getName().equalsIgnoreCase(registeredServer.getServerInfo().getName())){
                     continue;
                 }
-                /*try {
-                    Thread.sleep(750);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }*/
+
                 sendMessageToBackendServer(player, registeredServer, coordinates);
 
             }).start();
-
-            //player.connect(ProxyServer.getInstance().getServerInfo(servername));
         }
 
 
@@ -92,11 +79,6 @@ public class VelocityPluginMessageListener {
                 IOException e) {
             e.printStackTrace();
         }
-
-        Optional<ServerConnection> connection = player.getCurrentServer();
-        // On success, returns true
-        //connection.ifPresent(serverConnection -> serverConnection.sendPluginMessage(IDENTIFIER, stream.toByteArray()));
-
         registeredServer.sendPluginMessage(IDENTIFIER, stream.toByteArray());
     }
 
